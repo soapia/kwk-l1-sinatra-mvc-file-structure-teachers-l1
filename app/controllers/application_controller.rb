@@ -5,7 +5,15 @@ class ApplicationController < Sinatra::Base
   	set :public_dir, "public"
   end
 
-  get "/" do
+  get '/' do
   	erb :index
   end
+  
+  post '/' do
+    @the_user = params[:user]
+    @the_fortune = get_fortune
+    erb :results
+  end
+  
+
 end
